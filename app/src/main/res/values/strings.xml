@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">RadioButton</string>
+    <string name="men">Мужчина</string>
+    <string name="woman">Женщина</string>
+</resources>
