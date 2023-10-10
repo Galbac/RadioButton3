@@ -1,20 +1,34 @@
 package com.example.radiobutton
 
+
 import android.os.Bundle
+import android.widget.RadioGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.radiobutton.databinding.ActivityMainBinding
+
 
 class MainActivity : AppCompatActivity() {
-
+private  lateinit var  binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val radioButton = findViewById<CustomRadioButtonGender>(R.id.customRadioButton)
-        radioButton.setTextAndImageWith(R.string.men,R.drawable.ic_selected_men)
+        val radioGroupGender = findViewById<RadioGroup>(R.id.radioGroup)
+        radioGroupGender.clearCheck();
 
-        val radioButton2 = findViewById<CustomRadioButtonGender>(R.id.customRadioButton2)
-        radioButton2.setTextAndImageWith(R.string.woman,R.drawable.selected_woman)
+        radioGroupGender.setOnCheckedChangeListener{ group, checkedId ->
+            when (checkedId) {
+                -1 -> showToast("Не выбрано")
+                R.id.rbNamazForMen -> showToast("Мужчина")
+                R.id.rbNamazForWoman -> showToast("Женщина")
+            }
+        }
 
 
+    }
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 }
