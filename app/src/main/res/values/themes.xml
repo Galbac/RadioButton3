@@ -6,4 +6,10 @@
     </style>
 
     <style name="Theme.RadioButton" parent="Base.Theme.RadioButton" />
+
+    <style name="RadioButton" parent="Theme.AppCompat.Light">
+        <item name="colorControlActivated">@color/radio_on</item>
+        <item name="colorControlNormal">@color/radio_down</item>
+
+    </style>
 </resources>
